@@ -1,0 +1,36 @@
+create database myBoard;
+use myboard;
+drop table myboard
+
+create table myBoard (
+	bno int primary key auto_increment not null,
+	title varchar(30) not null,
+	content varchar(2000) not null,
+	writer varchar(30) not null,
+	regDate timestamp default now(),
+	viewCnt int default 0
+);
+
+insert into myboard values (null,'a제목','a내용','a작성자',null,null);
+select * from myBoard -- where bno =1;
+
+update myboard set title = '글 제목_수정', content ='글 내용_수정'
+where bno = 1;
+delete from myboard where bno=1;
+delete from myBoard
+		where bno = 4;
+		
+insert into myBoard(title, content, writer)
+  select title, content, writer from myBoard
+  
+select count(bno) from myBoard
+
+select bno, title, writer, regDate, viewCnt
+		from myBoard
+		order by bno desc
+		limit 0, 10
+
+select bno, viewCnt from myboard;
+update myBoard
+set viewCnt= viewCnt+1
+where bno=1;
