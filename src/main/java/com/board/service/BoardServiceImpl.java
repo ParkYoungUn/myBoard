@@ -64,6 +64,14 @@ public class BoardServiceImpl implements BoardService {
 		return dao.listPage(displayPost, postNum);
 	}
 
+	// 게시물 조회수 증가
+	@Override
+	public void viewCntUpdate(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		dao.viewCntUpdate(bno);
+
+	}
+
 
 
 }

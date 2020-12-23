@@ -72,4 +72,12 @@ public class BoardDAOImpl implements BoardDAO {
 		return sql.selectList(namespace + ".listPage", data);
 	}
 
+	// 게시물 조회수 증가
+	@Override
+	public void viewCntUpdate(int bno) throws Exception {
+		// TODO Auto-generated method stub
+		sql.update(namespace + ".viewCntUpdate", bno);
+
+	}
+
 }

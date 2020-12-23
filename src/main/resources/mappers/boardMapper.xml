@@ -49,4 +49,11 @@
 		limit #{displayPost}, #{postNum}
 	</select>
 	
+	<!-- 조회수 증가 -->
+	<update id="viewCntUpdate" parameterType="int">
+		update myBoard
+		set viewCnt= viewCnt+1
+		where bno=#{bno}
+	</update>
+	
 </mapper>

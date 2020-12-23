@@ -48,6 +48,10 @@ public class BoardController {
 	// 게시물 조회
 	@RequestMapping(value = "/view", method=RequestMethod.GET)
 	public void getView(@RequestParam("bno") int bno, Model model) throws Exception {
+
+		// 게시물 조회수 증가
+		service.viewCntUpdate(bno);
+
 		BoardVO vo = service.view(bno);
 
 		model.addAttribute("view", vo);
