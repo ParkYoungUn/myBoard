@@ -29,4 +29,8 @@ public interface BoardService {
 
 	// 게시물 조회수 증가
 	public void viewCntUpdate(int bno) throws Exception;
+
+	// 게시물 목록 + 페이징 + 검색
+	public List<BoardVO> listPageSearch(int displayPost, int postNum, String searchType, String keyword) throws Exception;
+
 }
