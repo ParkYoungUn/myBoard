@@ -151,7 +151,7 @@ public class BoardController {
 		*/
 	}
 
-	// 게시물 목록 + 페이징 추가
+	// 게시물 목록 + 페이징 추가 + 검색
 		@RequestMapping(value = "/listPageSearch", method=RequestMethod.GET)
 		public void getListPageSearch(Model model, @RequestParam("num") int num,
 				@RequestParam(value="searchType", required=false, defaultValue="title") String searchType,
@@ -160,7 +160,13 @@ public class BoardController {
 			Page page = new Page();
 
 			page.setNum(num);
-			page.setCount(service.count());
+			page.setCount(service.searchCount(searchType, keyword));
+//			page.setCount(service.count());
+
+			// 검색 타입과 검색어
+//			page.setSearchTypeKeyword(searchType, keyword);
+			page.setSearchType(searchType);
+			page.setKeyword(keyword);
 
 			List<BoardVO> list = null;
 			list = service.listPageSearch(page.getDisplayPost(), page.getPostNum(), searchType, keyword);
@@ -168,6 +174,10 @@ public class BoardController {
 			model.addAttribute("list", list);
 			model.addAttribute("page", page);
 			model.addAttribute("select", num);
+
+			// 다른 페이지 이동하더라도 검색 상태 유지
+//			model.addAttribute("searchType", searchType);
+//			model.addAttribute("keyword", keyword);
 
 		}
 
