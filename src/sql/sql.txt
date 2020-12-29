@@ -34,3 +34,13 @@ select bno, viewCnt from myboard;
 update myBoard
 set viewCnt= viewCnt+1
 where bno=1;
+
+CREATE TABLE reply (
+	rno int not null auto_increment,
+	bno int not null,
+	writer varchar(30) not null,
+	content text not null,
+	regDate timestamp not null default now(),
+	PRIMARY KEY(rno, bno),
+	FOREIGN KEY(bno) REFERENCES myBoard(bno)
+);
