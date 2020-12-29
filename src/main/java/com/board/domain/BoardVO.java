@@ -53,4 +53,15 @@ public class BoardVO {
 		this.viewCnt = viewCnt;
 	}
 
+	//
+	@Override
+	public String toString() {
+		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regDate="
+				+ regDate + ", viewCnt=" + viewCnt + "]";
+	}
+
+
+
+
+
 }

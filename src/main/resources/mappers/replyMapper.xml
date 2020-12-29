@@ -31,7 +31,7 @@
 	<delete id="replyDelete" parameterType="com.board.domain.ReplyVO">
 		delete from reply
 		where rno = #{rno}
-			and bno = ${bno}	
+			and bno = ${bno}
 	</delete>
 
 </mapper>

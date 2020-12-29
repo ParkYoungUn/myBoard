@@ -35,6 +35,7 @@ update myBoard
 set viewCnt= viewCnt+1
 where bno=1;
 
+drop table reply;
 CREATE TABLE reply (
 	rno int not null auto_increment,
 	bno int not null,
@@ -42,5 +43,10 @@ CREATE TABLE reply (
 	content text not null,
 	regDate timestamp not null default now(),
 	PRIMARY KEY(rno, bno),
-	FOREIGN KEY(bno) REFERENCES myBoard(bno)
+	FOREIGN KEY(bno) REFERENCES myBoard(bno) on delete cascade
 );
+
+insert into reply(bno, writer, content, regDate)
+	value(502, '댓글 작성자', '댓글 내용', sysdate());
+
+select * from reply;

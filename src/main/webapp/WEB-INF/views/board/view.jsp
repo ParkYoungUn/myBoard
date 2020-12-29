@@ -38,6 +38,9 @@
 						<p>${reply.content}</p>
 					</div>
 				</li>	
+				<div>
+					<a href="/reply/delete?bno=${reply.bno}&rno=${reply.rno}">댓글 삭제</a>
+				</div>
 			</c:forEach>
 		</ul>
 		
